@@ -11,6 +11,8 @@ public:
     void displaySubset();
     void decrease();
     void increase();
+    subset operator+(subset &);
+    subset operator-(subset &);
 };
 void menu();
 

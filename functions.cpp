@@ -45,3 +45,20 @@ void subset::decrease()
         container.insert(tmp[i]-1);
     }
 }
+subset subset::operator+(subset &subset1)
+{
+    subset subset_result;
+    subset_result.container.insert(subset1.container.begin(),subset1.container.end());
+    subset_result.container.insert(this->container.begin(),this->container.end());
+    return subset_result;
+}
+subset subset::operator-(subset &subset1)
+{
+    subset subset_result;
+    subset_result.container.insert(this->container.begin(),this->container.end());
+    for (set<int>::iterator i=subset1.container.begin(); i!=subset1.container.end(); ++i)
+    {
+        subset_result.container.erase(*i);
+    }
+    return subset_result;
+}
