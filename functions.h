@@ -7,6 +7,7 @@ private:
     set<int> container;
 public:
     void push(int);
+    void push(int, int);
     void pop(int);
     void displaySubset();
     void decrease();
@@ -14,6 +15,7 @@ public:
     subset operator+(subset &);
     subset operator-(subset &);
 };
+void change_value(set<int> &, int);
 void menu();
 
 
