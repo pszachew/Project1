@@ -12,3 +12,7 @@ public:
     void decrease();
     void increase();
 };
+void menu();
+
+
+
