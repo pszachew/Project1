@@ -1,8 +1,9 @@
-
 #include "functions.h"
 using namespace std;
 int main()
 {
-    cout<<"HELLO WORLD";
-    set<int> x;
+    subset x;
+    x.push(5);
+    x.decrease();
+    x.displaySubset();
 }
