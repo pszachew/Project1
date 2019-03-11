@@ -13,7 +13,7 @@ void subset::displaySubset()
 {
     if(container.size()==0)
     {
-        cout<<"Empty subset";
+        cout<<"Empty subset\n";
     }
     else
     {
@@ -94,7 +94,7 @@ void menu()
             submenu(subA,subB);
             break;
         case 2:
-            cout<<"/**********You are modifying subset B**********/n";
+            cout<<"/**********You are modifying subset B**********/\n";
             submenu(subB,subA);
             break;
         case 3:
