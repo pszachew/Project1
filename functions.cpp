@@ -31,38 +31,38 @@ void subset::displaySubset()
         cout<<"}\n";
     }
 }
-void change_value(set<int> &container, int k)
+void change_value(set<int> *container, int k)
 {
     vector<int> tmp;
-    for (set<int>::iterator i=container.begin(); i!=container.end(); ++i)
+    for (set<int>::iterator i=(*container).begin(); i!=(*container).end(); ++i)
     {
         tmp.push_back(*i);
     }
     for (uint i=0; i<tmp.size(); ++i)
     {
-        container.erase(tmp[i]);
+        (*container).erase(tmp[i]);
     }
     for (uint i=0; i<tmp.size(); ++i)
     {
-        container.insert(tmp[i]+k);
+        (*container).insert(tmp[i]+k);
     }
 }
 void subset::increase()
 {
-    change_value(this->container,1);
+    change_value(&container,1);
 }
 void subset::decrease()
 {
-    change_value(this->container,-1);
+    change_value(&container,-1);
 }
-subset subset::operator+(subset &subset1)
+subset subset::operator+(subset subset1)
 {
     subset subset_result;
     subset_result.container.insert(subset1.container.begin(),subset1.container.end());
     subset_result.container.insert(this->container.begin(),this->container.end());
     return subset_result;
 }
-subset subset::operator-(subset &subset1)
+subset subset::operator-(subset subset1)
 {
     subset subset_result;
     subset_result.container.insert(this->container.begin(),this->container.end());
@@ -104,7 +104,7 @@ void menu()
         }
     }
 }
-void submenu(subset &sub, subset &second)
+void submenu(subset sub, subset second)
 {
     int number;
     while(1)

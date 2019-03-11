@@ -12,12 +12,12 @@ public:
     void displaySubset();
     void decrease();
     void increase();
-    subset operator+(subset &);
-    subset operator-(subset &);
+    subset operator+(subset);
+    subset operator-(subset);
 };
-void change_value(set<int> &, int);
+void change_value(set<int> *, int);
 void menu();
-void submenu(subset &, subset &);
+void submenu(subset, subset);
 
 
 
