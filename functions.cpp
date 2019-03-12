@@ -91,11 +91,11 @@ void menu()
         {
         case 1:
             cout<<"/**********You are modifying subset A**********/\n";
-            submenu(subA,subB);
+            submenu(&subA,&subB);
             break;
         case 2:
             cout<<"/**********You are modifying subset B**********/\n";
-            submenu(subB,subA);
+            submenu(&subB,&subA);
             break;
         case 3:
             return;
@@ -104,7 +104,7 @@ void menu()
         }
     }
 }
-void submenu(subset sub, subset second)
+void submenu(subset *sub, subset *second)
 {
     int number;
     while(1)
@@ -118,27 +118,27 @@ void submenu(subset sub, subset second)
        case 1:
             cout<<"Give number: ";
             cin>>number;
-            sub.push(number);
+            (*sub).push(number);
             break;
        case 2:
-            sub.increase();
+            (*sub).increase();
             break;
        case 3:
-            sub.decrease();
+            (*sub).decrease();
             break;
        case 4:
             cout<<"Which number do you want to delete: ";
             cin>>number;
-            sub.pop(number);
+            (*sub).pop(number);
             break;
        case 5:
-            sub=sub+second;
+            (*sub)=(*sub)+(*second);
             break;
        case 6:
-            sub=sub-second;
+            (*sub)=(*sub)-(*second);
             break;
        case 7:
-            sub.displaySubset();
+            (*sub).displaySubset();
             break;
        case 8:
             int a, b;
@@ -146,7 +146,7 @@ void submenu(subset sub, subset second)
             cin>>a;
             cout<<"Give b:\n";
             cin>>b;
-            sub.push(a,b);
+            (*sub).push(a,b);
             break;
        case 9:
             return ;

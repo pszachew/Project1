@@ -17,7 +17,7 @@ public:
 };
 void change_value(set<int> *, int);
 void menu();
-void submenu(subset, subset);
+void submenu(subset *, subset *);
 
 
 
