@@ -1,4 +1,5 @@
 # Prerequisites
+bin/
 *.d
 *.cbp
 *.layout
