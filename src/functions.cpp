@@ -1,37 +1,9 @@
+/*Piotr Szachewicz 300272 Wiktor Kusmirek Projekt1*/
 #include "functions.h"
 #include <vector>
 typedef unsigned int uint;
-void subset::push(int value)
-{
-    container.insert(value);
-}
-void subset::pop(int value)
-{
-    container.erase(value);
-}
-void subset::displaySubset()
-{
-    if(container.size()==0)
-    {
-        cout<<"Empty subset\n";
-    }
-    else
-    {
-        cout<<"{";
-        uint it=1;
-        for (set<int>::iterator i=container.begin(); i!=container.end(); ++i)
-        {
-            cout<<*i;
-            if(it!=container.size())
-            {
-                cout<<",";
-            }
-            ++it;
-        }
-        cout<<"}\n";
-    }
-}
-void change_value(set<int> *container, int k)
+using namespace std;
+void changeValue(set<int> *container, int k)
 {
     vector<int> tmp;
     for (set<int>::iterator i=(*container).begin(); i!=(*container).end(); ++i)
@@ -47,41 +19,9 @@ void change_value(set<int> *container, int k)
         (*container).insert(tmp[i]+k);
     }
 }
-void subset::increase()
-{
-    change_value(&container,1);
-}
-void subset::decrease()
-{
-    change_value(&container,-1);
-}
-subset subset::operator+(subset subset1)
-{
-    subset subset_result;
-    subset_result.container.insert(subset1.container.begin(),subset1.container.end());
-    subset_result.container.insert(this->container.begin(),this->container.end());
-    return subset_result;
-}
-subset subset::operator-(subset subset1)
-{
-    subset subset_result;
-    subset_result.container.insert(this->container.begin(),this->container.end());
-    for (set<int>::iterator i=subset1.container.begin(); i!=subset1.container.end(); ++i)
-    {
-        subset_result.container.erase(*i);
-    }
-    return subset_result;
-}
-void subset::push(int value1, int value2)
-{
-    for(int i=value1; i<=value2; ++i)
-    {
-        container.insert(i);
-    }
-}
 void menu()
 {
-    subset subA,subB;
+    Subset subA,subB;
     while(1)
     {
         int choice;
@@ -104,7 +44,7 @@ void menu()
         }
     }
 }
-void submenu(subset *sub, subset *second)
+void submenu(Subset *sub, Subset *second)
 {
     int number;
     while(1)
@@ -118,7 +58,7 @@ void submenu(subset *sub, subset *second)
        case 1:
             cout<<"Give number: ";
             cin>>number;
-            (*sub).push(number);
+            (*sub).setNumber(number);
             break;
        case 2:
             (*sub).increase();
@@ -129,7 +69,7 @@ void submenu(subset *sub, subset *second)
        case 4:
             cout<<"Which number do you want to delete: ";
             cin>>number;
-            (*sub).pop(number);
+            (*sub).removeNumber(number);
             break;
        case 5:
             (*sub)=(*sub)+(*second);
@@ -146,7 +86,7 @@ void submenu(subset *sub, subset *second)
             cin>>a;
             cout<<"Give b:\n";
             cin>>b;
-            (*sub).push(a,b);
+            (*sub).setNumber(a,b);
             break;
        case 9:
             return ;
