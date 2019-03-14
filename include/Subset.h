@@ -1,6 +1,6 @@
 /*Piotr Szachewicz 300272 Wiktor Kusmirek Projekt1*/
-#ifndef FUNCTIONS_H
-#define FUNCTIONS_H
+#ifndef SUBSET_H
+#define SUBSET_H
 #include <set>
 class Subset
 {
@@ -17,3 +17,4 @@ public:
     Subset operator-(Subset);
 };
 #endif
+
