@@ -1,23 +1,25 @@
 /*Piotr Szachewicz 300272  Wiktor Kusmirek Projekt1*/
 #include "functions.h"
 #include <vector>
+#include <iostream>
 typedef unsigned int uint;
 using namespace std;
 void changeValue(set<int> *container, int k)
 {
     vector<int> tmp;
-    for (set<int>::iterator i=(*container).begin(); i!=(*container).end(); ++i)
-    {
-        tmp.push_back(*i);
-    }
-    for (uint i=0; i<tmp.size(); ++i)
-    {
-        (*container).erase(tmp[i]);
-    }
-    for (uint i=0; i<tmp.size(); ++i)
-    {
-        (*container).insert(tmp[i]+k);
-    }
+
+        for (set<int>::iterator i=(*container).begin(); i!=(*container).end(); ++i)
+        {
+            tmp.push_back(*i);
+        }
+        for (uint i=0; i<tmp.size(); ++i)
+        {
+            (*container).erase(tmp[i]);
+        }
+        for (uint i=0; i<tmp.size(); ++i)
+        {
+            (*container).insert(tmp[i]+k);
+        }
 }
 void menu()
 {
