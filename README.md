@@ -1,2 +1,2 @@
 # Project1
-subsets of integers 
+Subsets of Integers 
